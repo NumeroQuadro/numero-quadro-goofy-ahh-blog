@@ -12,27 +12,27 @@
 
 <body class="main-page">
     <header id="header" class="header__rectangle header__rectangle--display-flex header__rectangle--position-fixed">
-      <a class="logo__link" href="#brief_section">
+      <a class="logo__link" href="brief_tab">
         <img class="logo__image" src="assets/numeroquadro-logo.png" alt="redirect to main page">
       </a>
 
       <nav class="tab-container__grid">
         <a href="#me_section" class="tab_navigator">
-          <div class="content__rectangle content__rectangle--inactive content__title content__title--hover-scale-up">
+          <div id="me_tab" class="content__rectangle content__title content__title--hover-scale-up">
             <img class="content__laptop" src="assets/laptop.png"> 
             <span class="content__title--text-selection-color-denim content__title--color-pure">About me and my job</span>
           </div>
         </a>
 
         <a href="#music_section" class="tab_navigator">
-          <div id="content__title" class="content__rectangle content__rectangle--inactive content__title content__title--hover-scale-up">
+          <div id="music_tab" class="content__rectangle content__title content__title--hover-scale-up">
             <img class="content__music-sign" src="assets/music.png">
             <span class="content__title--text-selection-color-denim content__title--color-pure">About my hobbies</span>
           </div>
         </a>
 
         <a href="#free_time_section" class="tab_navigator">
-          <div class="content__rectangle content__rectangle--inactive content__title content__title--hover-scale-up">
+          <div id="free_time_tab" class="content__rectangle content__title content__title--hover-scale-up">
             <img class="content__pumpkin" src="assets/pumpkin-bag.png">
             <span class="content__title--text-selection-color-denim content__title--color-pure">About my free time</span>
           </div>
@@ -127,6 +127,25 @@
       </section>
       <section data-section="free_time" id="free_time_section" class="slide free_time free_time__rectangle">
 
+      </section>
+      <section data-section="contact_me" id="contact_me_section" class="slide contact_me contact_me__rectangle">
+        <div class="contact_me__footer_grid">
+          <div class="contact_me__welcome_text">
+            <h2 class="contant_me__apreciations_text">
+              I'm really appreciate you for visiting my site!
+            </h2><br>
+            <span class="contact_me__fancy_header">
+              You are 3 visiter of my site, so I'll call you... <span class="contact_me__numero_naming">numero tres</span>
+            </span><br>
+            <span>
+              Dear, <span>numero tres</span>, if you want, you can contact me via form below, this will redirect your message directly to my telegram bot. It's completely anonymous!
+            </span>
+          </div>
+          <div class="contact__me_input-username">
+            <input class="contact_me__input" required type="text" id="username">
+            <label class="contact_me__label" for="username">numero_tres__:</label>
+          </div>
+        </div>
       </section>
     </main>
     <script src="script.js"></script>
