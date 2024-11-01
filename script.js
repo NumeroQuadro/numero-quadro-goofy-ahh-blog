@@ -74,10 +74,8 @@ function updateDivClasses(currentTab) {
 
 (function () {
   window.addEventListener('load', function () {
-      // Замер времени загрузки страницы
-      const loadTime = (performance.now() / 1000).toFixed(3); // Конвертируем в секунды и округляем до 3 знаков
+      const loadTime = (performance.now() / 1000).toFixed(3);
 
-      // Находим элемент подвала и обновляем его текст
       const loadTimeText = document.getElementById('load-time-text');
       if (loadTimeText) {
           loadTimeText.textContent = `Page load time is ${loadTime} Seconds`;
