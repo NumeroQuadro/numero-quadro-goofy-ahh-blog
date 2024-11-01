@@ -58,9 +58,6 @@ html, body {
   position: relative;
   z-index: 96;
   top: 10vh;
-  right: 0;
-  left: 0;
-  bottom: 0;
   border-top-left-radius: var(--body-top-left-radius);
   border-top-right-radius: var(--body-top-right-radius);
   background-size: cover;
@@ -70,25 +67,23 @@ html, body {
 .body__horizontal-divider {
   position: absolute;
   display: flex;
-  left: 1000px;
-  top: 430px;
+  left: 50%;
+  top: 43%;
   z-index: 3;
-  width: 800px;
+  width: 46%;
   background: white;
   height: 1px;
-  margin: 0 auto;
 }
 
 .body__vertical-divider {
   position: absolute;
   display: flex;
-  left: 950px;
+  left: 49%;
   top: 54px;
   z-index: 3;
   width: 1px;
   background: white;
-  height: 750px;
-  margin: 0 auto;
+  height: 80%;
 }
 
 .aboutme-container__grid {
@@ -161,8 +156,9 @@ html, body {
 }
 
 .holiday-container__content {
-  display: block;
+  display: flex;
   text-align: center;
+  justify-content: center;
   font-family: "Scary Halloween Font", "Arial", sans-serif;
   font-size: 6rem;
 }
@@ -178,21 +174,16 @@ html, body {
   cursor: pointer;
 }
 
-@media (max-width: 1826px) {
-  .holiday-container__content {
-    display: none;
-  }
-}
-
 .holiday-container__grid {
   display: grid;
   position: absolute;
   grid-template-rows: 111px auto;
   align-items: center;
   left: var(--music-container-margin-left);
-  top: 480px;
-  width: var(--music-container-width);
-  height: 400px;
+  width: 40vw;
+  height: 50vh;
+  left: 55%;
+  top: 45%;
 }
 
 .holiday-container__title {
@@ -299,11 +290,10 @@ html, body {
 }
 
 .music-container__rectangle {
-  display: flex;
   position: absolute;
-  width: var(--music-container-width);
-  left: var(--music-container-margin-left);
-  top: 70px;
+  width: 5vw;
+  left: 55%;
+  top: 10%;
 }
 
 .info__title-track--text-clickable {
@@ -385,7 +375,7 @@ html, body {
 }
 
 @media (max-width : 1849px) {
-  .tile__telegram {
+  .tile__pinterest {
     display: none;
   }
 }
@@ -528,9 +518,10 @@ html, body {
   background-color: var(--yellow-300);
 }
 .music__rectangle {
+  display: flex;
   position: relative;
   width: 100vw;
-  height: 150vh;
+  height: 100vh;
 }
 
 [data-section="free_time"] {
