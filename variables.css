@@ -542,19 +542,65 @@ html, body {
   height: 50vh;
 }
 
-.contact_me__footer_grid {
+.contact_me__footer_grid--unsumbited {
   display: grid;
-  grid-template-columns: 50vw 50vw;
+  height: 100%;
+  border: 6px solid red;
+  grid-template-columns: 50% 50%;
   justify-content: center;
   align-items: center;
 }
-.contact__me_input-username {
+
+.contact_me__footer_grid--sumbited {
+  display: grid;
+  height: 100%;
+  border: 6px solid red;
+  grid-template-columns: 50% 25% 25%;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact_me__welcome_text {
+  font-family: Merriweather Sans, sans-serif;
+  text-align: center;
+  align-items: center;
+  width: 90%;
+  justify-items: center;
+}
+
+.contact_me__numero_naming {
+  font-weight: bold;
+}
+
+.contact_me__fancy_header {
+  font-size: Merriweather Sans, sans-serif;
+  color: red;
+}
+
+.contant_me__apreciations_text {
+  display: flex;
+  font-size: 50px;
+}
+
+.contact_form__grid {
+  display: grid;
+  height: 100%;
+  grid-template-rows: auto auto a;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid yellow;
+}
+
+.contact_form__username {
+  width: 100%;
   font-size: 1rem;
   position: relative;
   --primary: #0088cc;
+  align-self: end;
 }
 
-.contact_me__input {
+.contact_form__username_input {
   all: unset;
   width: 100%;
   color: #333;
@@ -566,7 +612,7 @@ html, body {
   box-sizing: border-box;
 }
 
-.contact_me__label {
+.contact_form__username_label {
   position: absolute;
   top: 0.8rem;
   left: 0.8rem;
@@ -576,16 +622,49 @@ html, body {
   background-color: transparent;
 }
 
-.contact_me__input:focus {
+.contact_form__username_input:focus {
   border: 1px solid var(--primary);
   background-color: #ffffff;
   box-shadow: 0 0 0 1px var(--primary);
 }
 
-.contact_me__input:is(:focus, :valid) ~ .contact_me__label {
+.contact_form__username_input:is(:focus, :valid) ~ .contact_form__username_label {
   transform: translateY(-140%) scale(0.85);
   background-color: #ffffff;
   padding-inline: 0.3rem;
   color: var(--primary);
   border-radius: 3px;
+}
+
+.contact_form__submit_button {
+  width: 100%;
+  height: 20%;
+  align-self: start;
+  margin-top: 5%;
+  background: var(--main-denim);
+  color: var(--main-pure);
+  border-radius: 6px;
+}
+
+.contact_form__submit_button--active_skew {
+  transition: transform 0.2s ease
+}
+
+.contact_form__submit_button--active_skew:active {
+  transform: skew(5deg, 5deg);
+}
+
+.contact_form__message {
+  width: 100%;
+  height: 100%;
+}
+
+.contact_form__message_input {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  background-color: #f5f5f5;
+  border: 1px solid var(--main-denim);
+  border-radius: 6px;
+  box-sizing: border-box;
 }

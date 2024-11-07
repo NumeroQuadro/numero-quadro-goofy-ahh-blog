@@ -129,7 +129,7 @@
 
       </section>
       <section data-section="contact_me" id="contact_me_section" class="slide contact_me contact_me__rectangle">
-        <div class="contact_me__footer_grid">
+        <div class="contact_me__footer_grid--sumbited">
           <div class="contact_me__welcome_text">
             <h2 class="contant_me__apreciations_text">
               I'm really appreciate you for visiting my site!
@@ -138,13 +138,20 @@
               You are 3 visiter of my site, so I'll call you... <span class="contact_me__numero_naming">numero tres</span>
             </span><br>
             <span>
-              Dear, <span>numero tres</span>, if you want, you can contact me via form below, this will redirect your message directly to my telegram bot. It's completely anonymous!
+              Dear, <span class="contact_me__numero_naming">numero tres</span>, if you want, you can contact me via form below, this will redirect your message directly to my telegram bot. It's completely anonymous!
             </span>
           </div>
-          <div class="contact__me_input-username">
-            <input class="contact_me__input" required type="text" id="username">
-            <label class="contact_me__label" for="username">numero_tres__:</label>
-          </div>
+          <div class=""></div>
+          <form class="contact_form contact_form__grid">
+            <div class="contact_form__username">
+              <input class="contact_form__username_input" required type="text" id="username">
+              <label class="contact_form__username_label" for="username">Your name:</label>
+            </div>
+            <div class="contact_form__message">
+              <textarea class="contact_form__message_input" rows="3" id="message"></textarea>
+            </div>
+            <button class="contact_form__submit_button contact_form__submit_button--active_skew">Submit</button>
+          </form>
         </div>
       </section>
     </main>
