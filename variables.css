@@ -356,7 +356,7 @@ html, body {
 }
 
 .quotes__rectangle:hover {
-  background-color: rgba(105, 107, 111, 0.107);
+  background-color: #b9cbe1; /* rgba(105, 107, 111, 0.107) or #ddd7e5*/
   transition: background-color 250ms ease;
 }
 
@@ -430,8 +430,53 @@ html, body {
   }
 }
 
+@media (max-width: 1460px) {
+  .track__cover {
+    width: 80px;
+  }
+
+  .track__description.visible {
+    visibility: inherit;
+    display: flex;
+    flex-direction: column;
+    transform: scale(1);
+    width: 250px;
+    height: 80px;
+    transform: translateX(0);
+    transition: width 900ms ease;
+  }
+
+  .track__title {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: var(--main-pure);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 @media (min-width: 380px) and (max-width: 420px) {
   .header__rectangle {
     height: 14vh;
+  }
+}
+
+@media (max-width: 1310px) {
+  .track__info:nth-child(n+5) {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .track__info:nth-child(n+4) {
+    display: none;
+  }
+}
+
+@media (max-width: 1080px) {
+  .track__info:nth-child(n+3) {
+    display: none;
   }
 }

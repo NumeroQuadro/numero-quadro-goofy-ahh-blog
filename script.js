@@ -35,3 +35,14 @@ function hideAuthor(quoteId) {
   let quote = document.getElementById(quoteId);
   quote.classList.remove("visible");
 }
+
+(function () {
+  window.addEventListener('load', function () {
+      const loadTime = (performance.now() / 1000).toFixed(3);
+
+      const loadTimeText = document.getElementById('load-time-text');
+      if (loadTimeText) {
+          loadTimeText.textContent = `Page load time is ${loadTime} Seconds`;
+      }
+  });
+})();
