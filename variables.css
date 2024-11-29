@@ -46,7 +46,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden; /* Keep body overflow hidden to control scroll in .content_container */
+  overflow: hidden;
 }
 
 
@@ -179,13 +179,13 @@ html, body {
 
 .content_container {
   display: block;
-  position: absolute; /* Remove absolute positioning */
+  position: absolute;
   background: white;
   width: calc(100vw - 350px);
   /* width: 72vw; */
-  height: 100vh; /* Set to viewport height */
+  height: 100vh;
   margin-left: 350px;
-  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-y: auto;
 }
 
 .obsidian__container {
@@ -236,7 +236,6 @@ html, body {
   
 }
 
-/* Container for the multi-select */
 .multi-select {
   position: relative;
   width: 300px;
