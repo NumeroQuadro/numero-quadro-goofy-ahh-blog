@@ -84,7 +84,7 @@ async function draw3dScatter() {
     marker: {
       size: 5,
       color: colors,
-      colorscale: 'Rainbow', // Choose a colorscale (e.g., 'Viridis', 'Rainbow', 'Cividis')
+      colorscale: 'Rainbow',
     },
     type: 'scatter3d',
   };
@@ -105,7 +105,6 @@ async function draw3dScatter() {
   }
 }
 
-// Sample data for options
 const options = [
   'Explicit_Content',
   'Number_Of_Artists',
@@ -131,7 +130,6 @@ const selectedOptionsContainer = document.getElementById('selected-options');
 const form = document.querySelector('.spotify_tracks_stat__form');
 const spotifyTracksPlot = document.getElementById('spotify-tracks-plot');
 
-// Function to display options
 function displayOptions(filteredOptions) {
   optionsList.innerHTML = '';
   filteredOptions.forEach(option => {
@@ -153,11 +151,8 @@ function displayOptions(filteredOptions) {
   });
 }
 
-// Function to update selected options display
 function updateSelectedOptions() {
-  // Clear existing tags
   selectedOptionsContainer.querySelectorAll('.tag').forEach(tag => tag.remove());
-  // Add tags for selected options
   selectedOptions.forEach(option => {
     const tagDiv = document.createElement('div');
     tagDiv.classList.add('tag');
@@ -244,7 +239,6 @@ function formSubmitHandler(event) {
     return;
   }
 
-  // Process the selected options
   console.log('Selected options:', selectedOptions);
   xCoordName = selectedOptions[0];
   yCoordName = selectedOptions[1];
@@ -256,7 +250,6 @@ function formSubmitHandler(event) {
 
   draw3dScatter();
 
-  // Example: Perform some operation with the selected options
   alert(`Form submitted with selected options: ${selectedOptions.join(', ')}`);
 }
 
