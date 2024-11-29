@@ -10,154 +10,170 @@
   <meta name="description" content="">
 </head>
 
-<body class="main-page">
-    <header id="header" class="header__rectangle header__rectangle--display-flex header__rectangle--position-fixed">
-      <a class="logo__link" href="brief_tab">
-        <img class="logo__image" src="assets/numeroquadro-logo.png" alt="redirect to main page">
+  <body>
+    <div class="header header__rectangle">
+      <button class="header__content_button">
+        <img src="assets/content.png" class="header__content_sign"></img>
+      </button>
+      <a>
+        <img class="header__logo" src="assets/numero quadro.png" href="me"></img>
       </a>
-
-      <nav class="tab-container__grid">
-        <a href="#me_section" class="tab_navigator">
-          <div id="me_tab" class="content__rectangle content__title content__title--hover-scale-up">
-            <img class="content__laptop" src="assets/laptop.png"> 
-            <span class="content__title--text-selection-color-denim content__title--color-pure">About me and my job</span>
-          </div>
+      <div class="header__bottom">
+        <a class="header__title_link" href="index.html">
+          <span class="header__title">numero quadro</span>
         </a>
-
-        <a href="#music_section" class="tab_navigator">
-          <div id="music_tab" class="content__rectangle content__title content__title--hover-scale-up">
-            <img class="content__music-sign" src="assets/music.png">
-            <span class="content__title--text-selection-color-denim content__title--color-pure">About my hobbies</span>
-          </div>
-        </a>
-
-        <a href="#free_time_section" class="tab_navigator">
-          <div id="free_time_tab" class="content__rectangle content__title content__title--hover-scale-up">
-            <img class="content__pumpkin" src="assets/pumpkin-bag.png">
-            <span class="content__title--text-selection-color-denim content__title--color-pure">About my free time</span>
-          </div>
-        </a>
-      </nav>
-      <div class="tile__grid">
-        <a class="tile__link" href="https://github.com/NumeroQuadro">
-          <img class="tile__github" src="assets/github-icon.png">
-        </a>
-        <a class="tile__link" href="https://m.vk.com/numero_quadro">
-          <img class="tile__vkontakte" src="assets/vk-icon.png">
-        </a>
-        <a class="tile__link" href="https://t.me/numero_quadro">
-          <img class="tile__telegram" src="assets/telegram-icon.png">
-        </a>
-        <a class="tile__link" href="https://open.spotify.com/user/31q2cxwcloqymtq6tolvwfxweb7i?si=59538b2df57a4095">
-          <img class="tile__spotify" src="assets/spotify.png">
-        </a>
-        <a href="https://pin.it/3gI2aPQln">
-          <img class="tile__pinterest" src="assets/pinterest.png">
-        </a>
+        <div class="header__about">
+          Hello, my internet nickname is numero quadro goofy ahh cat. Here you can find my contacts, my interests and lot more! Currently, I'm student, job seeker and non-professional gamer and professional procrastinator (joke)
+        </div>
+        <hr class="header__divider"></hr>
+        <ul class="header__navigation">
+          <a class="header__navigation_item">Home</a>
+          •
+          <a class="header__navigation_item">Experiment</a>
+          •
+          <a class="header__navigation_item">Job</a>
+          •
+          <a class="header__navigation_item">University</a>
+          •
+          <a class="header__navigation_item">Hobby</a>
+        </ul>
+        <div class="header__contacts">
+          <a href=""><img class="header__icon header__telegram_icon" src="assets/telegram-icon.png"></a>
+          <a href="https://m.vk.com/numero_quadro"><img class="header__icon header__vk_icon" src="assets/vk-icon.png"></a>
+          <a><img class="header__icon header__gmail_icon" src="assets/gmail.png"></a>
+          <a><img class="header__icon header__github_icon" src="assets/github-icon.png"></a>
+        </div>
       </div>
-    </header>
+    </sidebar>
 
-    <main id="fullpage">
-      <section data-section="brief" id="brief_section" class="slide brief__rectangle">
-        <div class="body__vertical-divider"></div>
-        <div class="body__horizontal-divider"></div>
-
-        <div class="aboutme-container aboutme-container__grid">
-          <img class="aboutme-container__picture" src="assets/me3.jpg">
-          <div class="content content__bubble-grid">
-            <div class="content__bubble-message-rectangle content__bubble-message-rectangle--text-aligned content__bubble-message-rectangle--filter-blur">
-              <span class="content__bubble-message-text content__bubble-message-text--color-pure">I am Dmitrii. I was born in Saint-Petersubrg. I am Software Engineer, music geek and non-professional gamer</span>
+    <div class="content content_container">
+      <div class="music music__container">
+        <h1 class="music__title">Music I'm obsessive with</h1>
+        <div class="track track__row">
+          <div class="track__info" onmouseover="revealDescription('description_1')" onmouseout="hideDescription('description_1')">
+            <img class="track__cover" id="track_1" src="assets/hardstone_psycho.jpeg" href="aurora song">
+            <div class="track__description visible" id="description_1">
+              <span class="track__title">NEW DROP</span>
+              <span class="track__author">Ton Doliver</span>
+              <span class="track__played_time">1 min. ago | Quadro Buds 2 Pro</span>
             </div>
-            <div class="content__bubble-message-rectangle content__bubble-message-rectangle--text-aligned content__bubble-message-rectangle--filter-blur">
-              <span class="content__bubble-message-text content__bubble-message-text--color-pure">I am Dmitrii. I was born in Saint-Petersubrg. I am Software Engineer, music geek and non-professional gamer</span>
+          </div>
+          <div class="track__info" onmouseover="revealDescription('description_2')" onmouseout="hideDescription('description_2')">
+            <img class="track__cover" id="track_2" src="assets/aurora.jpg" href="aurora song">
+            <div class="track__description" id="description_2">
+              <span class="track__title">NEW DROP</span>
+              <span class="track__author">Ton Doliver</span>
+              <span class="track__played_time">1 min. ago | Quadro Buds 2 Pro</span>
             </div>
-            <div class="content__bubble-message-rectangle content__bubble-message-rectangle--text-aligned content__bubble-message-rectangle--filter-blur">
-              <span class="content__bubble-message-text content__bubble-message-text--color-pure">I am Dmitrii. I was born in Saint-Petersubrg. I am Software Engineer, music geek and non-professional gamer</span>
+          </div>
+          <div class="track__info" onmouseover="revealDescription('description_3')" onmouseout="hideDescription('description_3')">
+            <img class="track__cover" id="track_3" src="assets/second.jpeg" href="aurora song">
+            <div class="track__description" id="description_3">
+              <span class="track__title">NEW DROP</span>
+              <span class="track__author">Ton Doliver</span>
+              <span class="track__played_time">1 min. ago | Quadro Buds 2 Pro</span>
+            </div>
+          </div>
+          <div class="track__info" onmouseover="revealDescription('description_5')" onmouseout="hideDescription('description_5')">
+            <img class="track__cover" id="track_5" src="assets/no_offence.jpeg" href="aurora song">
+            <div class="track__description" id="description_5">
+              <span class="track__title">NEW DROP</span>
+              <span class="track__author">Ton Doliver</span>
+              <span class="track__played_time">1 min. ago | Quadro Buds 2 Pro</span>
+            </div>
+          </div>
+          <div class="track__info" onmouseover="revealDescription('description_6')" onmouseout="hideDescription('description_6')">
+            <img class="track__cover" id="track_6" src="assets/eternal_atack_2.jpeg" href="aurora song">
+            <div class="track__description" id="description_6">
+              <span class="track__title">NEW DROP</span>
+              <span class="track__author">Ton Doliver</span>
+              <span class="track__played_time">1 min. ago | Quadro Buds 2 Pro</span>
             </div>
           </div>
         </div>
-        <div class="holiday-container holiday-container__grid">
-          <span class="holiday-container__title holiday-container__title--text-color-pure">My favorite holiday is:</span>
-          <a class="holiday-container__content--text-link-disabled" href="https://en.wikipedia.org/wiki/Halloween">
-            <span class="holiday-container__content holiday-container__content--text-color-orange">Halloween</span>
-          </a>
-        </div>
-
-        <div class="music-container music-container__rectangle">
-          <div class="track-rows track-rows__grid">
-            <div class="track-bubble track-bubble__grid">
-              <a href="https://open.spotify.com/track/6bEM4AwDfNxe9oT6pa3DaH?si=d2f5b1d9dd684728">
-                <img class="track-bubble__album-cover" src="assets/aurora.jpg" alt="album-cover">
-              </a>
-              <div class="info info__grid">
-                <div class="info__rectangle">
-                  <a class="info__title-track--text-clickable" href="https://open.spotify.com/track/6bEM4AwDfNxe9oT6pa3DaH?si=d2f5b1d9dd684728">
-                    <span class="info__title-track info__rectangle--text-h1-font-gotham-black">Some Type Of Skin - Acoustic</span>
-                  </a>
-                  <a class="info__title-author--text-clickable" href="https://open.spotify.com/artist/1WgXqy2Dd70QQOU7Ay074N?si=59bbcf1af6b84bf9">
-                    <span class="info__title-author info__rectangle--text-p-font-gotham-black">AURORA</span>
-                  </a>
-                </div>
+      </div>
+      <div class="spotify_tracks_stat spotify_tracks_stat__grid">
+        <div class="spotify_tracks_stat__options spotify_tracks_stat__options_rectangle">
+          <form class="spotify_tracks_stat__form" onsubmit="formSubmitHandler()">
+            <div class="multi-select">
+              <div class="selected-options" id="selected-options">
+                <input class="spotify_tracks_stat__selector" type="text" placeholder="Select options..." id="multi-select-input" autocomplete="off">
+              </div>
+              <div class="options-list" id="options-list">
               </div>
             </div>
-
-            <div class="track-bubble track-bubble__grid">
-              <a href="https://open.spotify.com/track/1Eo5BwAKqXgybhGqstjiVm?si=fba91e3d93fa4c26">
-                <img class="track-bubble__album-cover" src="assets/second.jpeg" alt="album-cover">
-              </a>
-              <div class="info info__grid">
-                <div class="info__rectangle">
-                  <a class="info__title-track--text-clickable" href="https://open.spotify.com/track/1Eo5BwAKqXgybhGqstjiVm?si=fba91e3d93fa4c26">
-                    <span class="info__title-track info__rectangle--text-h1-font-gotham-black">Rah Tah Tah</span>
-                  </a>
-                  <a class="info__title-author--text-clickable" href="https://open.spotify.com/artist/3KtiWEUyKC5lgHedcN6y6C?si=4ac502108e0f47de">
-                    <span class="info__title-author info__rectangle--text-p-font-gotham-black">Tyler, The Creator</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section data-section="me" id="me_section" class="slide me me__rectangle">
-        
-      </section>
-      <section data-section="music" id="music_section" class="slide music music__rectangle">
-
-      </section>
-      <section data-section="free_time" id="free_time_section" class="slide free_time free_time__rectangle">
-
-      </section>
-      <section data-section="contact_me" id="contact_me_section" class="slide contact_me contact_me__rectangle">
-        <div class="contact_me__footer_grid--sumbited">
-          <div class="contact_me__welcome_text">
-            <h2 class="contant_me__apreciations_text">
-              I'm really appreciate you for visiting my site!
-            </h2><br>
-            <span class="contact_me__fancy_header">
-              You are 3 visiter of my site, so I'll call you... <span class="contact_me__numero_naming">numero tres</span>
-            </span><br>
-            <span>
-              Dear, <span class="contact_me__numero_naming">numero tres</span>, if you want, you can contact me via form below, this will redirect your message directly to my telegram bot. It's completely anonymous!
-            </span>
-          </div>
-          <div class=""></div>
-          <form class="contact_form contact_form__grid">
-            <div class="contact_form__username">
-              <input class="contact_form__username_input" required type="text" id="username">
-              <label class="contact_form__username_label" for="username">Your name:</label>
-            </div>
-            <div class="contact_form__message">
-              <textarea class="contact_form__message_input" rows="3" id="message"></textarea>
-            </div>
-            <button class="contact_form__submit_button contact_form__submit_button--active_skew">Submit</button>
+            <br><button type="submit">submit</button>
+            <button type="reset" id="reset-btn" class="reset_btn"> reset</button>
           </form>
         </div>
-      </section>
-    </main>
+        <div id="spotify-tracks-plot" class="spotify_tracks_stat__3dplot"></div>
+        <div class="spotify_tracks_stat__previous_results spotify_tracks_stat__previous_results__rectangle"></div>
+      </div>
+      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+      <script src="script.js"></script>
+
+      
+      <div class="quotes">
+        <h1 class="quotes__title">Quotes I'm obsessive with</h1>
+        <div class="quotes__container">
+          <div class="quotes__rectangle" onmouseover="revealAuthor('quotes__first')" onmouseleave="hideAuthor('quotes__first')">
+            <div class="quotes__content">
+              <span class="quotes__text">
+                Intuition is a very powerful thing, more powerful than intellect, in my opinion.
+              </span>
+            </div>
+            <span id="quotes__first" class="quotes__author">Marcus Aurelius. Alone with myself</span>
+          </div>
+          <div class="quotes__rectangle" onmouseover="revealAuthor('quotes__second')" onmouseleave="hideAuthor('quotes__second')">
+            <div class="quotes__content">
+              <span class="quotes__text">
+                Intuition is a very powerful thing, more powerful than intellect, in my opinion.
+              </span>
+            </div>
+            <span id="quotes__second" class="quotes__author">Marcus Aurelius. Alone with myself</span>
+          </div>
+          <div class="quotes__rectangle" onmouseover="revealAuthor('quotes__third')" onmouseleave="hideAuthor('quotes__third')">
+            <div class="quotes__content">
+              <span class="quotes__text">
+                Intuition is a very powerful thing, more powerful than intellect, in my opinion.
+              </span>
+            </div>
+            <span id="quotes__third" class="quotes__author">Marcus Aurelius. Alone with myself</span>
+          </div>
+          <div class="quotes__rectangle" onmouseover="revealAuthor('quotes__fourth')" onmouseleave="hideAuthor('quotes__fourth')">
+            <div class="quotes__content">
+              <span class="quotes__text">
+                Intuition is a very powerful thing, more powerful than intellect, in my opinion.
+              </span>
+            </div>
+            <span id="quotes__fourth" class="quotes__author">Marcus Aurelius. Alone with myself</span>
+          </div>
+          <div class="quotes__rectangle" onmouseover="revealAuthor('quotes__fifth')" onmouseleave="hideAuthor('quotes__fifth')">
+            <div class="quotes__content">
+              <span class="quotes__text">
+                Intuition is a very powerful thing, more powerful than intellect, in my opinion.
+              </span>
+            </div>
+            <span id="quotes__fifth" class="quotes__author">Marcus Aurelius. Alone with myself</span>
+          </div>
+          <div class="quotes__rectangle" onmouseover="revealAuthor('quotes__sixth')" onmouseleave="hideAuthor('quotes__sixth')">
+            <div class="quotes__content">
+              <span class="quotes__text">
+                Intuition is a very powerful thing, more powerful than intellect, in my opinion.
+              </span>
+            </div>
+            <span id="quotes__sixth" class="quotes__author">Marcus Aurelius. Alone with myself</span>
+          </div>
+          
+        </div>
+      </div>
+      <div class="obsidian__container">
+        <h1 class="obsidian__title">Obsidian graph I'm obsessive with</h1>
+        <img class="obsidian__graph" src="assets/obsidian.png">
+      </div>
     <footer id="load-time-footer" style="text-align: center; margin-top: 20px;">
-        <span id="load-time-text">Page load time: calculating...</span>
+      <span id="load-time-text">Page load time: calculating...</span>
     </footer>
-    <script src="script.js"></script>
   </body>
 </html>
