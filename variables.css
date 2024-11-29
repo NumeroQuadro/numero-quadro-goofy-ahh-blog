@@ -212,6 +212,146 @@ html, body {
   border-radius: 20px;
 }
 
+.spotify_tracks_stat__grid {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 20px;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.spotify_tracks_stat__options_rectangle {
+  flex-grow: 1;
+  width: 400px;
+  height: 200px;
+  padding: 10px;
+  background: whitesmoke;
+}
+
+.spotify_tracks_stat__form {
+  
+}
+
+/* Container for the multi-select */
+.multi-select {
+  position: relative;
+  width: 300px;
+  font-family: Arial, sans-serif;
+}
+
+.spotify_tracks_stat__selector {
+  border-radius: 5px;
+}
+
+/* Selected options displayed as tags */
+.selected-options {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 1px solid var(--main-chromakopia);
+  padding: 5px;
+  cursor: pointer;
+}
+
+.selected-options input {
+  border: none;
+  flex: 1;
+  min-width: 150px;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.selected-options input:focus {
+  outline: none;
+}
+
+.tag {
+  border-radius: 3px;
+  padding: 5px 8px;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.tag--correct {
+  background: #b9cbe1;
+}
+
+.tag--incorrect {
+  background: red;
+}
+
+.tag--incorrect:active {
+  animation: shake 250ms;
+}
+
+.tag .remove-tag {
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.spotify_tracks_stat__selector {
+  min-width: 300px;
+  flex-grow: 4;
+  background: white;
+}
+
+.spotify_tracks_stat__selector:hover {
+  background-color: whitesmoke;
+}
+
+.options-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid #ccc;
+  display: none;
+  z-index: 1000;
+}
+
+.option {
+  flex-grow: 1;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.option:hover {
+  background-color: #b9cbe1;
+}
+
+.spotify_tracks_stat__previous_results__rectangle {
+  flex-grow: 1;
+  height: 200px;
+  width: 400px;
+  padding: 10px;
+  background: green;
+}
+
+.spotify_tracks_stat__3dplot {
+  flex-grow: 3;
+  display: block;
+  width: 100%;
+}
+
+.spotify_tracks_stat__3dplot.hidden {
+  display: none;
+}
+
+.spotify_tracks_stat__3dplot.visible {
+  display: block;
+}
 
 .track__info {
   display: flex;
@@ -309,13 +449,14 @@ html, body {
 }
 
 .quotes__container {
-  display: grid;
-  margin-top: 30px;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(2, auto);
-  max-width: 70vw;
-  height: 600px;
-  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .quotes__text {
@@ -346,14 +487,16 @@ html, body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  /* width: 350px; */
-  
-  width: 95%;
+  flex-basis: 300px;
+  flex-grow: 1;
   height: 250px;
-  border: grey solid 1px;
+  border: 1px solid grey;
   border-radius: 5px;
-  margin: auto;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
 }
+
 
 .quotes__rectangle:hover {
   background-color: #b9cbe1; /* rgba(105, 107, 111, 0.107) or #ddd7e5*/
