@@ -20,7 +20,7 @@
 
   --tab__rectangle-radius: 20px;
   --tab-content-padding: 10px;
-  --tab-content-height: var(--logo__image_width );
+  --tab-content-height: var(--logo__image_width);
   --tab-content-font-size: 32px;
   --tab-content-rectangle-width: 400px;
   --tab-content__title--text-margin-right: 50px;
@@ -42,7 +42,8 @@
   --phone-width: 430px;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -113,7 +114,7 @@ html, body {
   width: 200px;
   border-radius: 20px;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   margin: auto;
   margin-top: 30px;
 }
@@ -171,7 +172,7 @@ html, body {
   display: flex;
   gap: 5px;
   flex-direction: row;
-  justify-content: center;    
+  justify-content: center;
   align-items: center;
   padding: 0;
   align-self: flex-end;
@@ -225,15 +226,20 @@ html, body {
 }
 
 .spotify_tracks_stat__options_rectangle {
+  display: flex;
+  flex-direction: row;
   flex-grow: 1;
-  width: 400px;
-  height: 200px;
+  width: 70%;
+  height: auto;
   padding: 10px;
+  gap: 10px;
+  justify-content: center;
   background: whitesmoke;
 }
 
-.spotify_tracks_stat__form {
-  
+.spotify_tracks_stat__form_container {
+  width: auto;
+  height: auto;
 }
 
 .multi-select {
@@ -331,11 +337,44 @@ html, body {
 }
 
 .spotify_tracks_stat__previous_results__rectangle {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
   flex-grow: 1;
   height: 200px;
   width: 400px;
   padding: 10px;
-  background: green;
+  gap: 10px;
+}
+
+.spotify_tracks_stat_result__rectangle {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 200px;
+  height: 100px;
+  background: #b9cbe1;
+  border-radius: 10px;
+  padding: 10px;
+  flex-shrink: 0;
+  margin-left: 21px;
+  justify-content: center;
+}
+
+.spotify_tracks_stat_result:hover {
+  background-color: #0056b3;
+  cursor: pointer;
+}
+
+.spotify_tracks_stat_result:focus {
+  outline: 2px solid #fff;
+}
+
+.spotify_tracks_stat_result__rectangle--text-adjusted {
+  font-size: 18px;
+  margin: auto;
+  font-family: 'Merriweather Sans', sans-serif;
 }
 
 .spotify_tracks_stat__3dplot {
@@ -498,7 +537,8 @@ html, body {
 
 
 .quotes__rectangle:hover {
-  background-color: #b9cbe1; /* rgba(105, 107, 111, 0.107) or #ddd7e5*/
+  background-color: #b9cbe1;
+  /* rgba(105, 107, 111, 0.107) or #ddd7e5*/
   transition: background-color 250ms ease;
 }
 
@@ -516,7 +556,9 @@ html, body {
   width: 500px;
 }
 
-@media (max-width: 767px) { /*major phone settings*/
+@media (max-width: 767px) {
+
+  /*major phone settings*/
   .header__rectangle {
     display: flex;
     position: relative;
@@ -553,7 +595,7 @@ html, body {
     margin: 0;
     margin-bottom: 2px;
   }
-  
+
   .header__divider {
     display: flex;
     max-width: 300px;

@@ -36,7 +36,7 @@ function parseCSV(csvText) {
 }
 
 function getFeatureByColumnName(array, coordName) {
-  return  array.map((row) => row[coordName] * 100);
+  return array.map((row) => row[coordName] * 100);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -45,20 +45,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   checkScatterVisibility();
+  loadLastScatter();
 
   const form = document.querySelector('.spotify_tracks_stat__form');
   form.addEventListener('submit', formSubmitHandler);
 });
 
-let xCoordName = "Loudness";
-let yCoordName = "Danceability";
-let zCoordName = "Instrumentalness";
-
-async function draw3dScatter() {
+async function draw3dScatter(xCoordName, yCoordName, zCoordName) {
   try {
     const csvString = await loadCSV();
     const parseConfig = {
-      header : true,
+      header: true,
     };
 
     var data = Papa.parse(csvString, parseConfig);
@@ -72,38 +69,54 @@ async function draw3dScatter() {
 
     const colors = xCoords.map((_, index) => xCoords[index] ** 2 + yCoords[index] ** 2 + zCoords[index] ** 2)
 
-  const config = {
-    displayModeBar: false,
-  };
+    const config = {
+      displayModeBar: false,
+    };
 
-  const trace = {
-    x: xCoords,
-    y: yCoords,
-    z: zCoords,
-    mode: 'markers',
-    marker: {
-      size: 5,
-      color: colors,
-      colorscale: 'Rainbow',
-    },
-    type: 'scatter3d',
-  };
+    const trace = {
+      x: xCoords,
+      y: yCoords,
+      z: zCoords,
+      mode: 'markers',
+      marker: {
+        size: 5,
+        color: colors,
+        colorscale: 'Rainbow',
+      },
+      type: 'scatter3d',
+    };
 
-  const layout = {
-    title: "Spotify Audio Analysis for 1632 tracks",
-    scene: {
-      xaxis: { title: xCoordName },
-      yaxis: { title: yCoordName },
-      zaxis: { title: zCoordName },
-    },
-  };
+    const layout = {
+      title: "Spotify Audio Analysis for 1632 tracks",
+      scene: {
+        xaxis: { title: xCoordName },
+        yaxis: { title: yCoordName },
+        zaxis: { title: zCoordName },
+      },
+    };
+    Plotly.newPlot('spotify-tracks-plot', [trace], layout, config);
 
-  Plotly.newPlot('spotify-tracks-plot', [trace], layout, config);
+    const scatterState = {
+      xCoordName,
+      yCoordName,
+      zCoordName,
+    };
+    localStorage.setItem('lastSpotifyScatter', JSON.stringify(scatterState));
   }
   catch (error) {
     console.error('Error while reading csv file:', error.message);
   }
 }
+
+async function loadLastScatter() {
+  const lastScatter = JSON.parse(localStorage.getItem('lastSpotifyScatter'));
+
+  if (lastScatter) {
+    const { xCoordName, yCoordName, zCoordName } = lastScatter;
+    await draw3dScatter(xCoordName, yCoordName, zCoordName);
+  }
+}
+
 
 const options = [
   'Explicit_Content',
@@ -180,7 +193,7 @@ multiSelectInput.addEventListener('click', () => {
 
 multiSelectInput.addEventListener('input', () => {
   const searchValue = multiSelectInput.value.toLowerCase();
-  const filteredOptions = options.filter(option => 
+  const filteredOptions = options.filter(option =>
     option.toLowerCase().includes(searchValue) && !selectedOptions.includes(option)
   );
   displayOptions(filteredOptions);
@@ -233,7 +246,7 @@ function formSubmitHandler(event) {
     alert('Please select at least one option!');
     return;
   }
-  
+
   if (selectedOptions.length !== 3) {
     alert('Please select exactly 3 options!');
     return;
@@ -248,18 +261,61 @@ function formSubmitHandler(event) {
   localStorage.setItem(spotifyTracksPlot, 'visible');
   checkScatterVisibility();
 
-  draw3dScatter();
+  draw3dScatter(xCoordName, yCoordName, zCoordName);
+  saveSelectedOptions(xCoordName, yCoordName, zCoordName);
 
   alert(`Form submitted with selected options: ${selectedOptions.join(', ')}`);
 }
 
+function saveSelectedOptions(xCoordName, yCoordName, zCoordName) {
+  const previousOptionsContainer = document.getElementById('previous_results');
+
+  const resultDiv = document.createElement('div');
+  const uniqueId = crypto.randomUUID();
+  resultDiv.classList.add('spotify_tracks_stat_result', 'spotify_tracks_stat_result__rectangle', 'spotify_tracks_stat_result__rectangle--text-adjusted');
+  resultDiv.setAttribute('role', 'button');
+  resultDiv.setAttribute('id', uniqueId);
+  resultDiv.onclick = function () {
+    loadPreviousOptions(uniqueId);
+  };
+
+  const coordinates = [xCoordName, yCoordName, zCoordName];
+
+  coordinates.forEach(coord => {
+    const span = document.createElement('span');
+    span.textContent = `- ${coord}`;
+    span.innerHTML += '<br>';
+    resultDiv.appendChild(span);
+  });
+
+  previousOptionsContainer.appendChild(resultDiv);
+}
+
+async function loadPreviousOptions(uniqueId) {
+  const trackResultDiv = document.getElementById(uniqueId);
+  if (!trackResultDiv) {
+    console.error(`No element found with ID: ${uniqueId}`);
+    return;
+  }
+
+  const spans = trackResultDiv.getElementsByTagName("span");
+  const coords = Array.from(spans).map(span => span.textContent.trim().slice(2)); // Remove the '- ' prefix
+
+  if (coords.length >= 3) {
+    await draw3dScatter(coords[0], coords[1], coords[2]);
+  } else {
+    console.error("Not enough coordinates to draw scatter plot.");
+  }
+}
+
+
 (function () {
   window.addEventListener('load', function () {
-      const loadTime = (performance.now() / 1000).toFixed(3);
+    const loadTime = (performance.now() / 1000).toFixed(3);
 
-      const loadTimeText = document.getElementById('load-time-text');
-      if (loadTimeText) {
-          loadTimeText.textContent = `Page load time is ${loadTime} Seconds`;
-      }
+    const loadTimeText = document.getElementById('load-time-text');
+    if (loadTimeText) {
+      loadTimeText.textContent = `Page load time is ${loadTime} Seconds`;
+    }
   });
 })();
