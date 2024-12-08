@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="variables.css">
   <link rel="stylesheet" href="root.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <meta name="description" content="">
 </head>
 
@@ -40,11 +42,12 @@
         <a class="header__navigation_item">Hobby</a>
       </ul>
       <div class="header__contacts">
-        <a href=""><img class="header__icon header__telegram_icon" src="assets/telegram-icon.png"></a>
-        <a href="https://m.vk.com/numero_quadro"><img class="header__icon header__vk_icon" src="assets/vk-icon.png"></a>
-        <a><img class="header__icon header__gmail_icon" src="assets/gmail.png"></a>
-        <a><img class="header__icon header__github_icon" src="assets/github-icon.png"></a>
+        <img id="copyButtonTelegram" class="header__icon header__telegram_icon" src="assets/telegram-icon.png">
+        <img id="copyButtonVk" class="header__icon header__vk_icon" src="assets/vk-icon.png">
+        <img id="copyButtonGmail" class="header__icon header__gmail_icon" src="assets/gmail.png">
+        <img id="copyButtonGithub" class="header__icon header__github_icon" src="assets/github-icon.png">
       </div>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     </div>
     </sidebar>
 
@@ -123,7 +126,9 @@
       </div>
       <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-      <script src="script.js"></script>
+      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+      <script type="module" src="script.js"></script>
+      <script type="module" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
       <div class="quotes">
         <h1 class="quotes__title">Quotes I'm obsessive with</h1>

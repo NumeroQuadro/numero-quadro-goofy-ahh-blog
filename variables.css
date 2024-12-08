@@ -50,6 +50,32 @@ body {
   overflow: hidden;
 }
 
+.spotify_tracks_stat_result:hover {
+  background-color: rgba(53, 53, 183, 0.778);
+  cursor: pointer;
+}
+
+.spotify_tracks_stat_result:focus {
+  outline: 2px solid #fff;
+}
+
+.spotify_tracks_stat_result__rectangle {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  gap: 10px;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  background: rgba(89, 89, 222, 0.454);
+  border-radius: 10px;
+}
+
+.spotify_tracks_stat_result__rectangle--text-adjusted {
+  font-size: 18px;
+  margin: auto;
+  font-family: 'Merriweather Sans', sans-serif;
+}
 
 .header__rectangle {
   display: flex;
@@ -121,6 +147,7 @@ body {
 
 .header__icon {
   width: 40px;
+  cursor: pointer;
 }
 
 .header__contacts {
@@ -341,40 +368,11 @@ body {
   flex-direction: row;
   overflow-x: auto;
   overflow-y: hidden;
-  flex-grow: 1;
+  /* flex-grow: 1; */
   height: 200px;
-  width: 400px;
+  width: 100%;
   padding: 10px;
   gap: 10px;
-}
-
-.spotify_tracks_stat_result__rectangle {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  width: 200px;
-  height: 100px;
-  background: #b9cbe1;
-  border-radius: 10px;
-  padding: 10px;
-  flex-shrink: 0;
-  margin-left: 21px;
-  justify-content: center;
-}
-
-.spotify_tracks_stat_result:hover {
-  background-color: #0056b3;
-  cursor: pointer;
-}
-
-.spotify_tracks_stat_result:focus {
-  outline: 2px solid #fff;
-}
-
-.spotify_tracks_stat_result__rectangle--text-adjusted {
-  font-size: 18px;
-  margin: auto;
-  font-family: 'Merriweather Sans', sans-serif;
 }
 
 .spotify_tracks_stat__3dplot {

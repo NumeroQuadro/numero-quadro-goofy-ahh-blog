@@ -1,26 +1,26 @@
-function revealDescription(descriptionId) {
+window.revealDescription = function (descriptionId) {
   console.log('revealing', descriptionId);
   let description = document.getElementById(descriptionId);
   description.classList.add("visible");
-}
+};
 
-function hideDescription(descriptionId) {
+window.hideDescription = function (descriptionId) {
   console.log('hiding', descriptionId);
   let description = document.getElementById(descriptionId);
   description.classList.remove("visible");
-}
+};
 
-function revealAuthor(quoteId) {
+window.revealAuthor = function (quoteId) {
   console.log('revealing quote author');
   let quote = document.getElementById(quoteId);
   quote.classList.add("visible");
-}
+};
 
-function hideAuthor(quoteId) {
-  console.log('revealing quote author');
+window.hideAuthor = function (quoteId) {
+  console.log('hiding quote author');
   let quote = document.getElementById(quoteId);
   quote.classList.remove("visible");
-}
+};
 
 async function loadCSV() {
   const response = await fetch('assets/dataset.csv');
@@ -239,7 +239,7 @@ function checkScatterVisibility() {
   }
 }
 
-function formSubmitHandler(event) {
+window.formSubmitHandler = function (event) {
   event.preventDefault();
 
   if (selectedOptions.length === 0) {
@@ -253,19 +253,22 @@ function formSubmitHandler(event) {
   }
 
   console.log('Selected options:', selectedOptions);
-  xCoordName = selectedOptions[0];
-  yCoordName = selectedOptions[1];
-  zCoordName = selectedOptions[2];
 
-  const spotifyTracksPlot = document.getElementById('spotify-tracks-plot');
+  const xCoordName = selectedOptions[0];
+  const yCoordName = selectedOptions[1];
+  const zCoordName = selectedOptions[2];
+
   localStorage.setItem(spotifyTracksPlot, 'visible');
   checkScatterVisibility();
 
   draw3dScatter(xCoordName, yCoordName, zCoordName);
   saveSelectedOptions(xCoordName, yCoordName, zCoordName);
 
-  alert(`Form submitted with selected options: ${selectedOptions.join(', ')}`);
-}
+  sendNotification(`Form submitted with selected options: ${selectedOptions.join(', ')}`, 2000);
+};
+
+window.checkScatterVisibility = checkScatterVisibility;
+window.saveSelectedOptions = saveSelectedOptions;
 
 function saveSelectedOptions(xCoordName, yCoordName, zCoordName) {
   const previousOptionsContainer = document.getElementById('previous_results');
@@ -284,7 +287,8 @@ function saveSelectedOptions(xCoordName, yCoordName, zCoordName) {
   coordinates.forEach(coord => {
     const span = document.createElement('span');
     span.textContent = `- ${coord}`;
-    span.innerHTML += '<br>';
+    span.style.whiteSpace = "nowrap";
+    // span.innerHTML += '<br>';
     resultDiv.appendChild(span);
   });
 
@@ -306,6 +310,55 @@ async function loadPreviousOptions(uniqueId) {
   } else {
     console.error("Not enough coordinates to draw scatter plot.");
   }
+}
+
+function copyTextToClipboard(text) {
+  try {
+    navigator.clipboard.writeText(text);
+  }
+  catch {
+    console.error('Could not copy text: ', err);
+  }
+}
+
+document.getElementById('copyButtonTelegram').onclick = function () {
+  const contentToCopy = "https://t.me/numero_quadro";
+  const notificationMessage = "Telegram link copied to clipboard!";
+  sendNotification(notificationMessage, 3000);
+  copyTextToClipboard(contentToCopy);
+};
+document.getElementById('copyButtonVk').onclick = function () {
+  const contentToCopy = "https://vk.com/numero_quadro";
+  const notificationMessage = "Vkontakte link copied to clipboard!";
+  sendNotification(notificationMessage, 3000);
+  copyTextToClipboard(contentToCopy);
+};
+document.getElementById('copyButtonGithub').onclick = function () {
+  const contentToCopy = "https://github.com/NumeroQuadro";
+  const notificationMessage = "Github link copied to clipboard!";
+  sendNotification(notificationMessage, 3000);
+  copyTextToClipboard(contentToCopy);
+};
+document.getElementById('copyButtonGmail').onclick = function () {
+  const contentToCopy = "dimabelunin7@gmail.com";
+  const notificationMessage = "Gmail copied to clipboard!";
+  sendNotification(notificationMessage, 3000);
+  copyTextToClipboard(contentToCopy);
+};
+
+function sendNotification(text, duration_ms) {
+  Toastify({
+    text: text,
+    duration: duration_ms,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "#01823E",
+    },
+    onClick: function () { } // Callback after click
+  }).showToast();
 }
 
 
