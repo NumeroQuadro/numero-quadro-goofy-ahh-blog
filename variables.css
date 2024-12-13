@@ -47,8 +47,68 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
 }
+
+.header__container {
+  background: #4CAF50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.main__container {
+  flex: 1;
+  overflow-y: auto;
+  margin: 20px auto;
+  max-width: 600px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.comment__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment__textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.comment__button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.comment__button:hover {
+  background: #45a049;
+}
+
+.comments__section {
+  margin-top: 20px;
+}
+
+.comments__item {
+  background: #f1f1f1;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
 
 .spotify_tracks_stat_result:hover {
   background-color: rgba(53, 53, 183, 0.778);
@@ -69,6 +129,11 @@ body {
   justify-content: center;
   background: rgba(89, 89, 222, 0.454);
   border-radius: 10px;
+}
+
+.spotify_inline {
+  display: flex;
+  margin: auto;
 }
 
 .spotify_tracks_stat_result__rectangle--text-adjusted {
@@ -203,6 +268,12 @@ body {
   align-items: center;
   padding: 0;
   align-self: flex-end;
+}
+
+.header__navigation_item.active {
+  text-decoration: underline;
+  font-weight: bold;
+  color: green;
 }
 
 .content_container {

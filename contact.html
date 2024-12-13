@@ -1,0 +1,102 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <title>Numero Quadro</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="variables.css">
+    <link rel="stylesheet" href="root.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <meta name="description" content="">
+</head>
+
+<body>
+    <div class="header header__rectangle">
+        <button class="header__content_button">
+            <img src="assets/content.png" class="header__content_sign"></img>
+        </button>
+        <a>
+            <img class="header__logo" src="assets/numero quadro.png" href="me"></img>
+        </a>
+        <div class="header__bottom">
+            <a class="header__title_link" href="index.html">
+                <span class="header__title">numero quadro</span>
+            </a>
+            <div class="header__about">
+                Hello, my internet nickname is numero quadro goofy ahh cat. Here you can find my contacts, my interests
+                and lot
+                more! Currently, I'm student, job seeker and non-professional gamer and professional procrastinator
+                (joke)
+            </div>
+            <hr class="header__divider">
+            </hr>
+            <ul class="header__navigation">
+                <a class="header__navigation_item" href="index.html">Home</a>
+                •
+                <a class="header__navigation_item" href="job.html">Job</a>
+                •
+                <a class="header__navigation_item" href="university.html">University</a>
+                •
+                <a class="header__navigation_item" href="contact.html">Hobby</a>
+            </ul>
+            <div class="header__contacts">
+                <img id="copyButtonTelegram" class="header__icon header__telegram_icon" src="assets/telegram-icon.png">
+                <img id="copyButtonVk" class="header__icon header__vk_icon" src="assets/vk-icon.png">
+                <img id="copyButtonGmail" class="header__icon header__gmail_icon" src="assets/gmail.png">
+                <img id="copyButtonGithub" class="header__icon header__github_icon" src="assets/github-icon.png">
+            </div>
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        </div>
+        </sidebar>
+
+        <div class="content content_container">
+            <div class="spotify_tracks_stat spotify_tracks_stat__grid">
+                <div class="spotify_tracks_stat__options spotify_tracks_stat__options_rectangle">
+                    <div class="spotify_tracks_stat__form_container">
+                        <form class="spotify_tracks_stat__form" onsubmit="formSubmitHandler()">
+                            <div class="multi-select">
+                                <div class="selected-options" id="selected-options">
+                                    <input class="spotify_tracks_stat__selector" type="text"
+                                        placeholder="Select options..." id="multi-select-input" autocomplete="off">
+                                </div>
+                                <div class="options-list" id="options-list">
+                                </div>
+                            </div>
+                            <br><button type="submit">submit</button>
+                            <button type="reset" id="reset-btn" class="reset_btn"> reset</button>
+                        </form>
+                    </div>
+                    <div id="previous_results"
+                        class="spotify_tracks_stat__previous_results spotify_tracks_stat__previous_results__rectangle">
+                    </div>
+                </div>
+                <div id="spotify-tracks-plot" class="spotify_tracks_stat__3dplot"></div>
+            </div>
+            <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+            <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+            <script type="module" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+            <div class="main__container">
+                <div id="spotify-tracks-plot" class="plot__container"></div>
+                <h2>Leave a Comment</h2>
+                <form class="comment__form" id="comment-form">
+                    <textarea id="comment-text" class="comment__textarea"
+                        placeholder="Write your comment..."></textarea>
+                    <button type="button" class="comment__button" onclick="submitComment()">Submit</button>
+                </form>
+
+                <div class="comments__section" id="comments-section">
+                    <h3>Previous Comments</h3>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+        <script type="module" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script type="module" src="script.js"></script>
+</body>
+
+</html>

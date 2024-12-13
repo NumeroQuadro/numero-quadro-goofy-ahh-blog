@@ -22,6 +22,7 @@ window.hideAuthor = function (quoteId) {
   quote.classList.remove("visible");
 };
 
+
 async function loadCSV() {
   const response = await fetch('assets/dataset.csv');
   if (!response.ok) {
@@ -303,7 +304,7 @@ async function loadPreviousOptions(uniqueId) {
   }
 
   const spans = trackResultDiv.getElementsByTagName("span");
-  const coords = Array.from(spans).map(span => span.textContent.trim().slice(2)); // Remove the '- ' prefix
+  const coords = Array.from(spans).map(span => span.textContent.trim().slice(2));
 
   if (coords.length >= 3) {
     await draw3dScatter(coords[0], coords[1], coords[2]);
@@ -311,6 +312,81 @@ async function loadPreviousOptions(uniqueId) {
     console.error("Not enough coordinates to draw scatter plot.");
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const commentButton = document.querySelector('.comment__button');
+  if (commentButton) {
+    commentButton.addEventListener('click', () => {
+      const commentTextElement = document.getElementById("comment-text");
+      if (!commentTextElement) {
+        console.error("Comment text input not found");
+        return;
+      }
+
+      const commentText = commentTextElement.value;
+
+      if (commentText.trim() === "") {
+        alert("Please write a comment before submitting.");
+        commentTextElement.focus();
+        return;
+      }
+
+      const commentSection = document.getElementById("comments-section");
+      if (!commentSection) {
+        console.error("Comments section not found");
+        return;
+      }
+
+      const commentDiv = document.createElement("div");
+      commentDiv.className = "comments__item";
+      commentDiv.textContent = `${currentVisitor}: ${commentText}`;
+
+      commentSection.appendChild(commentDiv);
+
+      commentTextElement.value = "";
+      commentTextElement.focus();
+
+      visitors.push(currentVisitor);
+      currentVisitor = `Numero ${toSpanishOrdinal(visitors.length + 1)}`;
+      const welcomeMessage = document.getElementById("welcome-message");
+      if (welcomeMessage) {
+        welcomeMessage.textContent = `Welcome, ${currentVisitor}!`;
+      }
+    });
+  }
+});
+
+const visitors = [];
+let currentVisitor = `Numero ${toSpanishOrdinal(visitors.length + 1)}`;
+
+function toSpanishOrdinal(number) {
+  const ordinals = ["Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete", "Ocho", "Nueve", "Diez"];
+  return ordinals[number - 1] || number;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const welcomeMessage = document.getElementById("welcome-message");
+  if (welcomeMessage) {
+    welcomeMessage.textContent = `Welcome, ${currentVisitor}!`;
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log('lsdkjf');
+  const navLinks = document.querySelectorAll('.header__navigation_item');
+  const currentPath = window.location.pathname;
+
+  navLinks.forEach(link => {
+    const linkPath = new URL(link.href).pathname;
+    console.log(linkPath);
+
+    if (currentPath === linkPath || (currentPath === '/' && linkPath.includes('index.html'))) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+});
 
 function copyTextToClipboard(text) {
   try {
@@ -360,6 +436,23 @@ function sendNotification(text, duration_ms) {
     onClick: function () { } // Callback after click
   }).showToast();
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll('.header__navigation_item');
+  const currentPath = document.location.pathname;
+
+  navLinks.forEach(link => {
+    // Extract the href value from the link
+    const linkPath = link.getAttribute('href');
+
+    // Compare the link path with the current page path
+    if (linkPath && currentPath.endsWith(linkPath)) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+});
 
 
 (function () {
