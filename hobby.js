@@ -371,17 +371,22 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log('Current Path:', currentPath);
 
     navLinks.forEach((link, index) => {
-        const linkPath = link.getAttribute('href');
+        const linkPath = link.getAttribute('href'); // Используем getAttribute для получения пути
 
         if (!linkPath) {
             console.warn(`Link ${index + 1} does not have an href attribute. Skipping.`);
             return;
         }
 
+        // Добавляем имя репозитория к пути для корректного сравнения
+        const repoName = '/numero-quadro-goofy-ahh-blog'; // Укажите имя вашего репозитория
         const normalizedLinkPath = new URL(linkPath, document.location.origin).pathname;
-        console.log(`Link ${index + 1}: href = ${linkPath}, normalized path = ${normalizedLinkPath}`);
 
-        if (currentPath === normalizedLinkPath) {
+        const fullPath = repoName + linkPath; // Полный путь с учетом репозитория
+
+        console.log(`Link ${index + 1}: href = ${linkPath}, normalized path = ${normalizedLinkPath}, fullPath = ${fullPath}`);
+
+        if (currentPath === fullPath) {
             console.log(`Match found! Adding 'active' class to link ${index + 1}`);
             link.classList.add('active');
         } else {
@@ -392,6 +397,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log('Navigation highlighting complete.');
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const welcomeMessage = document.getElementById("welcome-message");
