@@ -84,6 +84,13 @@
                 <form class="comment__form" id="comment-form">
                     <textarea id="comment-text" class="comment__textarea"
                         placeholder="Write your comment..."></textarea>
+                    <div class="preloader-container" id="preloader-container">
+                        <div class="small-preloader"></div>
+                    </div>
+                    <div id="uuid-container" class="uuid-rectangle" onclick="fetchUUID()">
+                        <div class="loading-animation"></div>
+                        <span class="uuid-text">Loading UUID...</span>
+                    </div>
                     <button type="button" class="comment__button" onclick="submitComment()">Submit</button>
                 </form>
 

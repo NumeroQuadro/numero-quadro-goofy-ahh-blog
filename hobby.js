@@ -371,18 +371,17 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log('Current Path:', currentPath);
 
     navLinks.forEach((link, index) => {
-        const linkPath = link.getAttribute('href'); // Используем getAttribute для получения пути
+        const linkPath = link.getAttribute('href');
 
         if (!linkPath) {
             console.warn(`Link ${index + 1} does not have an href attribute. Skipping.`);
             return;
         }
 
-        // Добавляем имя репозитория к пути для корректного сравнения
-        const repoName = '/numero-quadro-goofy-ahh-blog'; // Укажите имя вашего репозитория
+        const repoName = '/numero-quadro-goofy-ahh-blog';
         const normalizedLinkPath = new URL(linkPath, document.location.origin).pathname;
 
-        const fullPath = repoName + linkPath; // Полный путь с учетом репозитория
+        const fullPath = repoName + linkPath;
 
         console.log(`Link ${index + 1}: href = ${linkPath}, normalized path = ${normalizedLinkPath}, fullPath = ${fullPath}`);
 
@@ -398,10 +397,52 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log('Navigation highlighting complete.');
 });
 
+async function fetchUUID(onInitialLoad = false) {
+    const container = document.getElementById('uuid-container');
+    const preloaderContainer = document.getElementById('preloader-container');
+    const loadingAnimation = container.querySelector('.loading-animation');
+    const uuidText = container.querySelector('.uuid-text');
+
+    if (onInitialLoad) {
+        preloaderContainer.style.display = 'block';
+    }
+    loadingAnimation.style.display = 'block';
+    uuidText.textContent = 'Loading UUID...';
+
+    try {
+        const response = await fetch('https://www.uuidtools.com/api/generate/v1');
+        if (!response.ok) {
+            throw new Error('Failed to fetch UUID');
+        }
+
+        const data = await response.json();
+        if (!onInitialLoad) {
+            copyTextToClipboard(data[0]);
+            sendNotification("UUID copied to clipboard", 1000);
+        }
+        uuidText.textContent = data[0];
+    } catch (error) {
+        uuidText.textContent = 'Error fetching UUID!';
+        console.error('Error:', error.message);
+    } finally {
+        if (onInitialLoad) {
+            preloaderContainer.style.display = 'none';
+        }
+        loadingAnimation.style.display = 'none';
+    }
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const welcomeMessage = document.getElementById("welcome-message");
     if (welcomeMessage) {
         welcomeMessage.textContent = `Welcome, ${currentVisitor}!`;
+    }
+
+    fetchUUID(true);
+
+    const uuidContainer = document.getElementById('uuid-container');
+    if (uuidContainer) {
+        uuidContainer.addEventListener('click', () => fetchUUID());
     }
 });
