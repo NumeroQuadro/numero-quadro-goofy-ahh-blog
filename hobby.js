@@ -407,6 +407,8 @@ function currentDocumentPathTracker() {
         const href = navItem.getAttribute('href');
         if (href && href === currentPage) {
             navItem.classList.add('active');
+        } else {
+            navItem.classList.remove('active');
         }
     });
 }
