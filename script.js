@@ -86,7 +86,6 @@ function currentDocumentPathTracker() {
 
 document.addEventListener("DOMContentLoaded", currentDocumentPathTracker());
 
-
 (function () {
   window.addEventListener('load', function () {
     const loadTime = (performance.now() / 1000).toFixed(3);
