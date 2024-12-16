@@ -71,39 +71,20 @@ function sendNotification(text, duration_ms) {
   }).showToast();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const navLinks = document.querySelectorAll('.header__navigation_item');
-  console.log('Navigation links found:', navLinks);
+function currentDocumentPathTracker() {
+  const currentPage = window.location.pathname.split('/').pop();
 
-  const currentPath = document.location.pathname;
-  console.log('Current Path:', currentPath);
+  const navItems = document.querySelectorAll('.header__navigation_item');
 
-  navLinks.forEach((link, index) => {
-    const linkPath = link.getAttribute('href');
-
-    if (!linkPath) {
-      console.warn(`Link ${index + 1} does not have an href attribute. Skipping.`);
-      return;
-    }
-
-    const repoName = '/numero-quadro-goofy-ahh-blog';
-    const normalizedLinkPath = new URL(linkPath, document.location.origin).pathname;
-
-    const fullPath = repoName + linkPath;
-
-    console.log(`Link ${index + 1}: href = ${linkPath}, normalized path = ${normalizedLinkPath}, fullPath = ${fullPath}`);
-
-    if (currentPath === fullPath) {
-      console.log(`Match found! Adding 'active' class to link ${index + 1}`);
-      link.classList.add('active');
-    } else {
-      console.log(`No match for link ${index + 1}. Removing 'active' class.`);
-      link.classList.remove('active');
+  navItems.forEach(navItem => {
+    const href = navItem.getAttribute('href');
+    if (href && href === currentPage) {
+      navItem.classList.add('active');
     }
   });
+}
 
-  console.log('Navigation highlighting complete.');
-});
+document.addEventListener("DOMContentLoaded", currentDocumentPathTracker());
 
 
 (function () {

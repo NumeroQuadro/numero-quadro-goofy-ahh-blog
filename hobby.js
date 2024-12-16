@@ -363,7 +363,7 @@ function toSpanishOrdinal(number) {
     return ordinals[number - 1] || number;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function pageLocationTracker() {
     const navLinks = document.querySelectorAll('.header__navigation_item');
     console.log('Navigation links found:', navLinks);
 
@@ -395,7 +395,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     console.log('Navigation highlighting complete.');
-});
+}
 
 async function fetchUUID(onInitialLoad = false) {
     const container = document.getElementById('uuid-container');
@@ -432,13 +432,23 @@ async function fetchUUID(onInitialLoad = false) {
     }
 }
 
+function currentDocumentPathTracker() {
+    const currentPage = window.location.pathname.split('/').pop();
+
+    const navItems = document.querySelectorAll('.header__navigation_item');
+
+    navItems.forEach(navItem => {
+        const href = navItem.getAttribute('href');
+        if (href && href === currentPage) {
+            navItem.classList.add('active');
+        }
+    });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-    const welcomeMessage = document.getElementById("welcome-message");
-    if (welcomeMessage) {
-        welcomeMessage.textContent = `Welcome, ${currentVisitor}!`;
-    }
+    currentDocumentPathTracker();
 
+    // Additional hobby.js-specific code
     fetchUUID(true);
 
     const uuidContainer = document.getElementById('uuid-container');
