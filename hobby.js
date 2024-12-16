@@ -239,34 +239,6 @@ function checkScatterVisibility() {
     }
 }
 
-document.formSubmitHandler = function (event) {
-    event.preventDefault();
-
-    if (selectedOptions.length === 0) {
-        alert('Please select at least one option!');
-        return;
-    }
-
-    if (selectedOptions.length !== 3) {
-        alert('Please select exactly 3 options!');
-        return;
-    }
-
-    console.log('Selected options:', selectedOptions);
-
-    const xCoordName = selectedOptions[0];
-    const yCoordName = selectedOptions[1];
-    const zCoordName = selectedOptions[2];
-
-    localStorage.setItem(spotifyTracksPlot, 'visible');
-    checkScatterVisibility();
-
-    draw3dScatter(xCoordName, yCoordName, zCoordName);
-    saveSelectedOptions(xCoordName, yCoordName, zCoordName);
-
-    sendNotification(`Form submitted with selected options: ${selectedOptions.join(', ')}`, 2000);
-};
-
 document.checkScatterVisibility = checkScatterVisibility;
 document.saveSelectedOptions = saveSelectedOptions;
 
@@ -414,6 +386,36 @@ function currentDocumentPathTracker() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector('.spotify_tracks_stat__form');
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (selectedOptions.length === 0) {
+            alert('Please select at least one option!');
+            return;
+        }
+
+        if (selectedOptions.length !== 3) {
+            alert('Please select exactly 3 options!');
+            return;
+        }
+
+        console.log('Selected options:', selectedOptions);
+
+        const xCoordName = selectedOptions[0];
+        const yCoordName = selectedOptions[1];
+        const zCoordName = selectedOptions[2];
+
+        localStorage.setItem(spotifyTracksPlot, 'visible');
+        checkScatterVisibility();
+
+        draw3dScatter(xCoordName, yCoordName, zCoordName);
+        saveSelectedOptions(xCoordName, yCoordName, zCoordName);
+
+        sendNotification(`Form submitted with selected options: ${selectedOptions.join(', ')}`, 2000);
+    });
+
     currentDocumentPathTracker();
 
     fetchUUID(true);
